@@ -1,18 +1,46 @@
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then, Before } = require('cucumber');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const database = require('../../../src/database');
+
+const url = 'http://localhost:3000';
+const newAppointmentPath = '/appointment/new';
+const { expect } = chai;
+let patient = {};
+
+chai.use(chaiHttp);
 
 Given('a new patient', (dataTable) => {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+   return patient = {
+    name: dataTable.raw()[0][1],
+    lastname: dataTable.raw()[1][1],
+    address: dataTable.raw()[2][1],
+    phoneNmbr: dataTable.raw()[3][1],
+    date: dataTable.raw()[4][1],
+    reason: dataTable.raw()[5][1],
+  };
 });
 
-When('make the reservation', () => {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+When('make the reservation', (done) => {
+  return chai.request(url)
+    .post(newAppointmentPath)
+    .set('Content-Type', 'application/json')
+    .send(patient)
+    .end((err, res) => {
+      expect(res).to.have.status(200);
+      done();
+    })
 });
 
 Then('the appointment is registered in the system', (dataTable) => {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+  return database.findByPhone (patient.phone, (patientDB)=>{
+    expect(patientDB.name).to.be.equal(patient.name);
+    expect(patientDB.lastname).to.be.equal(patient.lastname);
+    expect(patientDB.address).to.be.equal(patient.address);
+    expect(patientDB.phoneNmbr).to.be.equal(patient.phoneNmbr);
+    expect(patientDB.date).to.be.equal(patient.date);
+    expect(patientDB.reason).to.be.equal(patient.reason);
+  })
 });
 
 Given('a patient with an appointment made', () => {

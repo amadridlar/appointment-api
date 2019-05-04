@@ -8,10 +8,10 @@ Feature: new patient appointment
         Given a new patient
             | name               | <name>     |
             | lastname           | <lastname> |
-            | Address            | <address>  |
-            | Phone number       | <phone>    |
-            | Appointment date   | <date>     |
-            | Appointment reason | <reason>   |
+            | address            | <address>  |
+            | phone number       | <phone>    |
+            | appointment date   | <date>     |
+            | appointment reason | <reason>   |
         When make the reservation
         Then the appointment is registered in the system
             | name               | <name>     |
