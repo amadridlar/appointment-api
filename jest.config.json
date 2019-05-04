@@ -1,0 +1,14 @@
+{  
+  "automock": false,
+  "verbose": true,
+  "testEnvironment": "node",
+  "testMatch": [
+    "<rootDir>/test/unit/**/*.test.js"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.js"
+  ],
+  "coveragePathIgnorePatterns": [
+  ],
+  "coverageDirectory": "test/reports/coverage"
+}
