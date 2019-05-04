@@ -3,8 +3,7 @@ module.exports = {
     res.status(200);
     res.json({
       status: 'success',
-      message: 'API is up and running'
+      message: 'API is up and running',
     });
-
-  }
-}
+  },
+};
