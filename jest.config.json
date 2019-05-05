@@ -10,5 +10,6 @@
   ],
   "coveragePathIgnorePatterns": [
   ],
-  "coverageDirectory": "test/reports/coverage"
+  "coverageDirectory": "test/reports/coverage",
+  "restoreMocks": true
 }
