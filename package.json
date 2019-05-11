@@ -2,8 +2,10 @@
   "name": "appointment-api",
   "version": "0.0.1",
   "description": "API to make appointments and manage them from a backend",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
+    "start": "node src/main.js",
+    "start-dev": "nodemon src/main.js",
     "test": "jest -c=jest.config.json",
     "test-coverage": "jest -c=jest.config.json --coverage",
     "test-e2e": "cucumber-js test/e2e",
