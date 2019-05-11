@@ -4,7 +4,7 @@ const chaiHttp = require('chai-http');
 const database = require('../../../src/database');
 
 const url = 'http://localhost:3000';
-const newAppointmentPath = '/appointment/new';
+const newAppointmentPath = '/appointments/new';
 const { expect } = chai;
 let patient = {};
 
@@ -14,7 +14,7 @@ Given('a new patient', dataTable => patient = {
   name: dataTable.raw()[0][1],
   lastname: dataTable.raw()[1][1],
   address: dataTable.raw()[2][1],
-  phoneNmbr: dataTable.raw()[3][1],
+  phoneNumber: dataTable.raw()[3][1],
   date: dataTable.raw()[4][1],
   reason: dataTable.raw()[5][1],
 });
@@ -32,7 +32,7 @@ Then('the appointment is registered in the system', dataTable => database.findBy
   expect(patientDB.name).to.be.equal(patient.name);
   expect(patientDB.lastname).to.be.equal(patient.lastname);
   expect(patientDB.address).to.be.equal(patient.address);
-  expect(patientDB.phoneNmbr).to.be.equal(patient.phoneNmbr);
+  expect(patientDB.phoneNumber).to.be.equal(patient.phoneNumber);
   expect(patientDB.date).to.be.equal(patient.date);
   expect(patientDB.reason).to.be.equal(patient.reason);
 }));
