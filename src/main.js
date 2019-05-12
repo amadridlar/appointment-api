@@ -18,7 +18,7 @@ app.use('/', rootRoutes);
 app.use('/appointments', appointmentRoot);
 
 // Database connection
-mongoose.connect('mongodb://localhost:27017/mongodb', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/mongodb', { useNewUrlParser: true });
 
 const server = app.listen(serverPort, () => {
   console.log(colors.bgGreen(`Server is up and running on port ${serverPort}`));

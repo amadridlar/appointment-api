@@ -10,7 +10,7 @@ describe('appointmentController', () => {
         address: 'vanlose allé 123',
         date: '04-05-2019',
         reason: 'oh my knee!',
-      }
+      },
     };
     const res = {
       status: jest.fn(),

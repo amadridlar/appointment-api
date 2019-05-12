@@ -1,18 +1,17 @@
 const AppointmentModel = require('../../src/database/models/appointmentModel');
 const database = require('../../src/database');
+
 jest.mock('../../src/database/models/appointmentModel');
 
-beforeEach(()=>{
+beforeEach(() => {
   AppointmentModel.mockClear();
 });
 
 describe('Database', () => {
   describe('saveAppointment', () => {
     test('save document in database', () => {
-
       expect(AppointmentModel).not.toHaveBeenCalled();
-
-      database.saveAppointment({name: 'johny',}, (err, savedData) => null);
+      database.saveAppointment({ name: 'johny' }, (err, savedData) => null);
       expect(AppointmentModel).toHaveBeenCalledTimes(1);
       expect(AppointmentModel.mock.instances[0].save).toHaveBeenCalledTimes(1);
     });
