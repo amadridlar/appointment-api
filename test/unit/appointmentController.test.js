@@ -4,11 +4,13 @@ const database = require('../../src/database/index');
 describe('appointmentController', () => {
   describe('when newAppointment is called', () => {
     const req = {
-      name: 'johny',
-      lastname: 'reland',
-      address: 'vanlose allé 123',
-      date: '04-05-2019',
-      reason: 'oh my knee!',
+      body: {
+        name: 'johny',
+        lastname: 'reland',
+        address: 'vanlose allé 123',
+        date: '04-05-2019',
+        reason: 'oh my knee!',
+      }
     };
     const res = {
       status: jest.fn(),
@@ -28,7 +30,7 @@ describe('appointmentController', () => {
       });
 
       appointmentController.newAppointment(req, res);
-      return expect(database.saveAppointment.mock.calls[0][0]).toBe(req);
+      return expect(database.saveAppointment.mock.calls[0][0]).toBe(req.body);
     });
     test('responds with status 200', () => {
       database.saveAppointment = jest.fn((request, callback) => {

@@ -8,14 +8,7 @@ module.exports = {
         res.json({
           status: 'success',
           message: 'appointment correctly saved',
-          data: {
-            id: databaseResponse.id,
-            name: databaseResponse.name,
-            lastname: databaseResponse.lastname,
-            address: databaseResponse.address,
-            date: databaseResponse.date,
-            reason: databaseResponse.reason,
-          },
+          data: databaseResponse,
         });
       }
       if (err !== null) {
