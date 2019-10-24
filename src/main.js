@@ -13,6 +13,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+
+error de código
+
 // ROUTES
 app.use('/', rootRoutes);
 app.use('/appointments', appointmentRoot);
