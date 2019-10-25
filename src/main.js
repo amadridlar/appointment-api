@@ -13,8 +13,8 @@ const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-
-error de código
+// comment code to break sonar
+const sonarBreak = Math.random();
 
 // ROUTES
 app.use('/', rootRoutes);
