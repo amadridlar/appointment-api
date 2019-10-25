@@ -13,9 +13,6 @@ const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-// comment code to break sonar
-const sonarBreak = Math.random();
-
 // ROUTES
 app.use('/', rootRoutes);
 app.use('/appointments', appointmentRoot);
