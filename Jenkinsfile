@@ -15,8 +15,8 @@ node {
     //   // sonarScanner = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     //   bat label: 'Sonar-scanner', script: 'sonar-scanner -D sonar-project.properties'
     // }
-    sonarScanner = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    sh label: '', script: "${sonarScanner} -D sonar-project.properties"
+    name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    sh label: '', script: "sonar-scanner -D sonar-project.properties"
 
   }
 }
