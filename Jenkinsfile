@@ -17,7 +17,7 @@ node {
     // }
     sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     myVariable = 'new variable'
-    bat label: '', script: 'echo %myVariable%'
+    bat label: '', script: "echo ${myVariable}"
     // bat label: '', script: '%sonarScanner% -D sonar-project.properties'
 
   }
