@@ -11,9 +11,11 @@ node {
     bat label: 'Unit test', script: 'npm run test-coverage'
   }
   stage ('Static Analysis'){
-    withSonarQubeEnv ('SonarQube 8.0') {
-      // sonarScanner = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-      bat label: 'Sonar-scanner', script: 'sonar-scanner -D sonar-project.properties'
+    // withSonarQubeEnv ('SonarQube 8.0') {
+    //   // sonarScanner = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    //   bat label: 'Sonar-scanner', script: 'sonar-scanner -D sonar-project.properties'
+    def sonar-scanner = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    bat label: '', script: '%sonar-scanner% -D sonar-project.properties'
 }
 
   }
