@@ -1,6 +1,6 @@
 {
   "name": "appointment-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "API to make appointments and manage them from a backend",
   "main": "src/main.js",
   "scripts": {
