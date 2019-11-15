@@ -1,6 +1,6 @@
 node('slave-node') {
   stage('Init'){
-    // checkout([$class: 'GitSCM', branches: [[name: 'remove-branch']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git']]])
+    git branch: 'remove-branch', credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git'
     sh label: 'ls -l', script: 'ls -l'
     sh label: 'git version', script: 'git --version'
   }
