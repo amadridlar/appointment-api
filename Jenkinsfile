@@ -1,6 +1,5 @@
 node('slave-node') {
   stage('Init'){
-    git branch: 'feature/new-appointment', url: 'file:///C:/Users/alvaro.madrid/workspace/appointment-api/'
     sh label: 'Dir', script: 'dir'
   }
   stage('Build'){
