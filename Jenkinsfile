@@ -1,7 +1,8 @@
 node('slave-node') {
   stage('Init'){
-    checkout([$class: 'GitSCM', branches: [[name: 'remove-branch']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git']]])
+    // checkout([$class: 'GitSCM', branches: [[name: 'remove-branch']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git']]])
     sh label: 'ls -l', script: 'ls -l'
+    sh label: 'git version', script: 'git --version'
   }
   stage('Build'){
     sh label: 'NPM set strict-ssl false', returnStdout: true, script: 'npm cache clean --force && npm config set strict-ssl false'
