@@ -1,5 +1,6 @@
 node('slave-node') {
   stage('Init'){
+    git branch: 'remove-branch', credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git'
     sh label: 'Dir', script: 'dir'
   }
   stage('Build'){
