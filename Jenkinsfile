@@ -1,7 +1,7 @@
 node('slave-node') {
   stage('Init'){
     git branch: 'remove-branch', credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git'
-    sh label: 'Dir', script: 'ls -l'
+    sh label: 'ls -l', script: 'ls -l'
   }
   stage('Build'){
     sh label: 'NPM set strict-ssl false', returnStdout: true, script: 'npm cache clean --force && npm config set strict-ssl false'
