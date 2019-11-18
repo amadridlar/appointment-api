@@ -13,10 +13,10 @@ node('slave-node') {
     sh label: 'Unit test', script: 'npm run test-coverage'
   }
   stage ('Static Analysis'){
-    withSonarQubeEnv ('SonarQube 8.0') {
-      sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-      echo "${sonarScanner}"
-      sh label: 'Sonar', script: "${sonarScanner} -D sonar-project.properties"
-    }
+    // withSonarQubeEnv ('SonarQube 8.0') {
+    //   sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    //   echo "${sonarScanner}"
+    // }
+      sh label: 'Sonar', script: "sonarScanner -D sonar-project.properties"
   }
 }
