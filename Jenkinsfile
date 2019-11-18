@@ -12,6 +12,8 @@ node('slave-node') {
     sh label: 'Unit test', script: 'npm run test-coverage'
   }
   stage ('Static Analysis'){
-    sh label: 'Sonar', script: 'sonar-scanner -D sonar-project.properties'
+    // sh label: 'Sonar', script: 'sonar-scanner -D sonar-project.properties'
+    sonarScanner = tool name: 'sonar-scanner-4.2.0-slave', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    sh label: 'Sonar analysis', script: "${sonarScanner} -D sonar-project.properties"
   }
 }
