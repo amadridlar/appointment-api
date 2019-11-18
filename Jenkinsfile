@@ -5,13 +5,13 @@ node('slave-node') {
     sh label: 'install node version', script: 'n 10.16.3'
     sh label: 'node version', script: 'node -v'
   }
-  stage('Build'){
-    sh label: 'NPM set strict-ssl false', returnStdout: true, script: 'npm cache clean --force && npm config set strict-ssl false'
-    sh label: 'NPM install modules', returnStdout: true, script: 'npm install'
-  }
-  stage('Unit test'){
-    sh label: 'Unit test', script: 'npm run test-coverage'
-  }
+  // stage('Build'){
+  //   sh label: 'NPM set strict-ssl false', returnStdout: true, script: 'npm cache clean --force && npm config set strict-ssl false'
+  //   sh label: 'NPM install modules', returnStdout: true, script: 'npm install'
+  // }
+  // stage('Unit test'){
+  //   sh label: 'Unit test', script: 'npm run test-coverage'
+  // }
   stage ('Static Analysis'){
     // withSonarQubeEnv ('SonarQube 8.0') {
     //   sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
