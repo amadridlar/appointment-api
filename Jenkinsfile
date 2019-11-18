@@ -2,7 +2,7 @@ node('slave-node') {
   stage('Init'){
     git branch: 'remove-branch', credentialsId: 'Github', url: 'https://github.com/amadridlar/appointment-api.git'
     sh label: 'ls -l', script: 'ls -l'
-    sh label: 'install node version', script: 'n 10.16.3'
+    // sh label: 'install node version', script: 'n 10.16.3'
     sh label: 'node version', script: 'node -v'
   }
   // stage('Build'){
@@ -19,8 +19,8 @@ node('slave-node') {
     // }
     echo "$PATH"
     sh label: 'Sonar dir', script: "ls -l /opt"
-    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0.1873-linux"
-    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0.1873-linux/bin"
+    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0"
+    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0/bin"
     sh label: 'Sonar', script: "sonar-scanner -D sonar-project.properties"
   }
 }
