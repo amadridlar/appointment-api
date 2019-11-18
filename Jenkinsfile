@@ -15,6 +15,7 @@ node('slave-node') {
   stage ('Static Analysis'){
     withSonarQubeEnv ('SonarQube 8.0') {
       sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+      echo "${sonarScanner}"
       sh label: 'Sonar', script: "${sonarScanner} -D sonar-project.properties"
     }
   }
