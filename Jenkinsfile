@@ -18,6 +18,9 @@ node('slave-node') {
     //   echo "${sonarScanner}"
     // }
     echo "$PATH"
-      sh label: 'Sonar', script: "sonar-scanner -D sonar-project.properties"
+    sh label: 'Sonar dir', script: "ls -l /opt"
+    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0.1873-linux"
+    sh label: 'Sonar dir', script: "ls -l /opt/sonar-scanner-4.2.0.1873-linux/bin"
+    sh label: 'Sonar', script: "sonar-scanner -D sonar-project.properties"
   }
 }
