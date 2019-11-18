@@ -17,6 +17,7 @@ node('slave-node') {
     //   sonarScanner = tool name: 'sonar-scanner-4.2.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     //   echo "${sonarScanner}"
     // }
+    echo "$PATH"
       sh label: 'Sonar', script: "sonar-scanner -D sonar-project.properties"
   }
 }
